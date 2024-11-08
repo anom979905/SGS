@@ -1,6 +1,0 @@
-streamlit
-tensorflow
-keras
-numpy
-pillow 
-urllib3
