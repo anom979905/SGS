@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        .vulnerability {
+            background-color: #eef5f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        .general-recommendations {
+            background-color: #eaf8ea;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scan Report for {{ data['target_ip'] }}</h1>
+
+        <section>
+            <h2>1. Name of the Network Scan</h2>
+            <p><strong>Scan Name:</strong> Advanced Network Vulnerability Assessment</p>
+        </section>
+
+        <section>
+            <h2>2. Version Detected</h2>
+            <p><strong>Version Detected:</strong> CUPS 2.2.10</p>
+        </section>
+
+        <section>
+            <h2>3. Open Ports and Vulnerabilities Found</h2>
+            <div class="vulnerability">
+                <h3>Port 631 - HTTP Method Tampering</h3>
+                <p><strong>Risk:</strong> High</p>
+                <p><strong>Description:</strong> Potential unauthorized access due to insecure HTTP methods.</p>
+                <p><strong>Solution:</strong> Update to the latest version, enforce POST methods, and implement strong authentication.</p>
+            </div>
+            <div class="vulnerability">
+                <h3>Port 5000 - Unknown Service</h3>
+                <p><strong>Risk:</strong> Medium</p>
+                <p><strong>Description:</strong> An unknown service is running, which could be exploited.</p>
+                <p><strong>Solution:</strong> Identify and secure the service, apply updates, and restrict access.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Risk Assessment Summary</h2>
+            <p><strong>High Risk:</strong> HTTP Method Tampering (Port 631)</p>
+            <p><strong>Medium Risk:</strong> Unknown Service (Port 5000)</p>
+        </section>
+
+        <section>
+            <h2>5. Password Results</h2>
+            <p><strong>Status:</strong> Weak passwords detected. Recommend enforcing strong password policies.</p>
+        </section>
+
+        <section class="general-recommendations">
+            <h2>6. Summary and Recommendations</h2>
+            <ul>
+                <li>Update software and services to the latest versions.</li>
+                <li>Implement strong authentication mechanisms.</li>
+                <li>Regularly perform vulnerability scans.</li>
+                <li>Ensure proper access controls and password policies are in place.</li>
+            </ul>
+        </section>
+
+        <div style="text-align: center;">
+            <button onclick="generatePDF()">Generate PDF Report</button>
+            <button onclick="window.location.href='/'">Scan Another IP</button>
+        </div>
+    </div>
+
+    <script>
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(20);
+            doc.text("Scan Report", 105, 20, { align: "center" });
+
+            doc.setFontSize(14);
+            doc.setFont("normal");
+            doc.text(`Target IP: {{ data['target_ip'] }}`, 10, 40);
+
+            doc.text("1. Name of the Network Scan", 10, 60);
+            doc.text("Advanced Network Vulnerability Assessment", 20, 70);
+
+            doc.text("2. Version Detected", 10, 90);
+            doc.text("CUPS 2.2.10", 20, 100);
+
+            doc.text("3. Open Ports and Vulnerabilities Found", 10, 120);
+            doc.text("Port 631 - HTTP Method Tampering (High Risk)", 20, 130);
+            doc.text("Description: Potential unauthorized access due to insecure HTTP methods.", 20, 140);
+            doc.text("Solution: Update to the latest version, enforce POST methods, and implement strong authentication.", 20, 150);
+
+            doc.text("Port 5000 - Unknown Service (Medium Risk)", 20, 170);
+            doc.text("Description: An unknown service is running, which could be exploited.", 20, 180);
+            doc.text("Solution: Identify and secure the service, apply updates, and restrict access.", 20, 190);
+
+            doc.text("4. Risk Assessment Summary", 10, 210);
+            doc.text("High Risk: HTTP Method Tampering (Port 631)", 20, 220);
+            doc.text("Medium Risk: Unknown Service (Port 5000)", 20, 230);
+
+            doc.text("5. Password Results", 10, 250);
+            doc.text("Weak passwords detected. Recommend enforcing strong password policies.", 20, 260);
+
+            doc.text("6. Summary and Recommendations", 10, 280);
+            doc.text("- Update software and services to the latest versions.", 20, 290);
+            doc.text("- Implement strong authentication mechanisms.", 20, 300);
+            doc.text("- Regularly perform vulnerability scans.", 20, 310);
+            doc.text("- Ensure proper access controls and password policies are in place.", 20, 320);
+
+            doc.save("Scan_Report.pdf");
+        }
+    </script>
+</body>
+</html>
