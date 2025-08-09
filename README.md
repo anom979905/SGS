@@ -1,69 +1,60 @@
-About the Project
-<div align="center"> <img src="images/SmartGarbage.gif" alt="Smart Garbage Segregation Demo" width="750"> </div>
-This project applies machine learning to automatically classify and segregate waste into categories like plastic, paper, and metal.
-The system is trained using a large dataset of labeled waste images and uses a camera to capture new inputs for real-time classification.
+♻️ Smart Garbage Segregation
+"Turning trash into tech — one image at a time"
 
-✅ Why it matters:
+<div align="center"> <img src="images/logo.png" alt="Logo" width="90" height="90"> <br/> <a href="https://drive.google.com/file/d/1FttMlM96K5njpDYt_v4MtVvyPX62REhj/view">🎥 Watch Video</a> • <a href="https://raison024-smart-garbage-segregation-deploymentapp-lfq9yb.streamlit.app/">🚀 Live Demo</a> • <a href="https://github.com/raison024/Smart-Garbage-Segregation/issues">🐞 Report Bug</a> • <a href="https://github.com/raison024/Smart-Garbage-Segregation/issues">💡 Suggest Feature</a> </div>
+🌟 What is Smart Garbage Segregation?
+An AI-powered waste sorting system that uses image classification to automatically identify and segregate waste into categories like plastic, paper, and metal.
+Our mission: make recycling faster, smarter, and more sustainable.
 
-Eliminates manual sorting — faster and more efficient
+<div align="center"> <img src="images/SmartGarbage.gif" alt="Demo" width="750"> </div>
+💡 Why We Built This
+🌍 The Problem
 
-Reduces human error in waste management
+2.01 billion tons of waste generated annually
 
-Boosts recycling rates and recovery of reusable materials
+33% is not safely managed
 
-Inspiration <img src="images/inspo.png" width="25">
-Every year:
+8 million metric tons of plastic enter oceans yearly (enough to cover every shoreline with 5 grocery bags of plastic per foot)
 
-🌍 2.01 billion tons of municipal solid waste are generated
+🛠 The Solution
 
-❌ 33% is not managed in an environmentally safe way
+Automate waste sorting with AI + ML
 
-🌊 8 million metric tons of plastic enter oceans — that’s 5 plastic-filled grocery bags per foot of shoreline
+Reduce human error and labor costs
 
-The problem:
-Manual garbage segregation is slow, labor-intensive, and often inaccurate.
+Increase recycling rates & environmental sustainability
 
-Our solution:
-Use AI + ML + Image Recognition to automate waste sorting, allowing:
+🛠 Tech Stack
+Category	Tools & Tech
+Frameworks	TensorFlow, Intel oneAPI, oneDNN
+Languages	Python
+Deployment	Streamlit
+Core Concepts	CNNs, Image Classification, Real-Time Processing
 
-Continuous improvement through machine learning
+🚀 How It Works
+1️⃣ Capture Image → Waste image taken via camera
+2️⃣ Process → Preprocessing & resizing
+3️⃣ Classify → CNN model predicts category
+4️⃣ Sort → Directs waste to correct bin
 
-Faster, scalable processing for recycling plants
+📈 Continuous Learning – Model improves with each new dataset.
 
-Lower environmental impact
+🌱 Impact
+♻ Better Recycling – More recoverable materials
 
-Built With
-Intel oneAPI & oneDNN – Hardware-optimized deep learning performance
+👷 Less Manual Labor – Safer, faster sorting
 
-TensorFlow – CNN-based image classification
+🏭 Industry-Ready – Can integrate with existing recycling lines
 
-Python + Jupyter – Data preparation & training
+📚 Awareness – Educates public on proper waste management
 
-Streamlit – Interactive model deployment
+🏆 What We Learned
+Optimizing deep learning models with Intel oneDNN
 
-How It Works
-Capture waste images via camera.
+Handling real-world image noise in classification
 
-Preprocess and feed them into a CNN classifier.
+Deploying interactive AI apps with Streamlit
 
-Model predicts the waste category (plastic, paper, metal, etc.).
+Designing scalable AI pipelines
 
-The system updates accuracy over time through retraining.
-
-Impact
-♻ Environmental Sustainability – More recyclables recovered, less landfill waste
-
-👷 Reduced Manual Labor – Workers handle less sorting, more supervision
-
-🏭 Scalable for Industry – Fits into existing recycling workflows
-
-📚 Educational Value – Promotes awareness of responsible disposal
-
-What We Learned
-Optimization with oneDNN improves both speed and efficiency
-
-Building a robust CNN model for multi-class classification
-
-Image preprocessing techniques for real-world conditions
-
-Deployment of AI models for public interaction
+<div align="center"> <b>🌍 Small step for code, giant leap for cleaner Earth.</b> <br/> ♻ Built with ❤️ by a team passionate about **AI for Sustainability** </div>
