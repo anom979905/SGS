@@ -1,6 +1,4 @@
-Here’s a rewritten version of your **Smart Garbage Segregation** project description in a more concise, organized, and engaging style:
 
----
 
 # **Smart Garbage Segregation**
 
@@ -58,8 +56,3 @@ Traditional waste sorting is **manual, slow, and error-prone**. AI/ML offers an 
 * **Sustainability Awareness** – Reinforcing the importance of reducing waste and promoting eco-friendly practices.
 * **Collaboration** – Working with experts from various domains to deliver impactful solutions.
 
----
-
-If you want, I can also rewrite this in a **more casual and storytelling format** for **GitHub README** or a **hackathon submission** so it’s more engaging for judges and contributors. That would make it both **professional** and **reader-friendly**.
-
-Do you want me to do that next?
